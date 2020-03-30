@@ -17,27 +17,38 @@ class FactorialCalc extends React.Component {
         return (
         <div className="factorialCalc">
             <div className="header">
-                <h1>Calculate the factorial of a positive integer</h1>
+                <h1>Calculate the factorial of an integer</h1>
             </div>
             <div>
-                <NumericInput min={1} value={this.state.integer} class='numInput' onChange={this.updateResult} />
+                <NumericInput min={0} max={40} value={this.state.integer} class='numInput' onChange={this.updateResult} />
                 <h>{this.state.result}</h>
             </div>
         </div>
         );
     }
     
-    
     updateResult = (newInteger) => {
-        var newResult = factorial(newInteger);
-        this.setState({
-            integer: newInteger,
-            result: newResult,
-        })
+        var newResult;
+        if (newInteger < 0) {
+            newResult = factorial(0);
+            this.setState({
+                integer: 0,
+                result: newResult,
+            })
+        } else if (newInteger > 40) {
+            newResult = factorial(40);
+            this.setState({
+                integer: 40,
+                result: newResult,
+            })
+        } else {
+            newResult = factorial(newInteger);
+            this.setState({
+                integer: newInteger,
+                result: newResult,
+            })
+        }
     }
-
-    
-
 }
 
 ReactDOM.render(
