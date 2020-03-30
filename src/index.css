@@ -1,0 +1,59 @@
+body {
+    background-color: #2E4A62;
+}
+
+
+
+.factorialCalc {
+    background: #fcfcfc;
+    border-radius: 6px;
+    box-shadow: 0 0 25px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.content {
+    margin: 25px;
+}
+
+.header h1 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #294257;
+}
+
+.calculator {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.react-numeric-input {
+    border: 2px solid #dadada;
+    border-radius: 6px;
+}
+
+.react-numeric-input input {
+    width: 80px;
+    height: 80px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+.results {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 25px;
+}
+
+.results p {
+    color: #294257;
+    text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 24px;
+}

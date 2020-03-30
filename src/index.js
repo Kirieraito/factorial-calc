@@ -16,12 +16,16 @@ class FactorialCalc extends React.Component {
     render() {
         return (
         <div className="factorialCalc">
-            <div className="header">
-                <h1>Calculate the factorial of an integer</h1>
-            </div>
-            <div>
-                <NumericInput min={0} max={40} value={this.state.integer} class='numInput' onChange={this.updateResult} />
-                <h>{this.state.result}</h>
+            <div className="content">
+                <div className="header">
+                    <h1>Calculate the factorial of an integer</h1>
+                </div>
+                <div className="calculator">
+                    <NumericInput min={0} max={40} value={this.state.integer} class='numInput' onChange={this.updateResult} />
+                </div>
+                <div className="results">
+                    <p className="result">Result: {this.state.result}</p> 
+                </div>
             </div>
         </div>
         );
