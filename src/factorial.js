@@ -1,14 +1,22 @@
-function factorial(n) {
-    if (n === 0) {
+function productTree(left, right) {
+    if (left > right)
         return 1;
-    }
-    else {
-        var result = 1;
-        for (let i=1; i<n+1; i++) {
-            result *= i;
-        }
-        return result;
-    }
+    if (left === right)
+        return right;
+    if (right - left === 1)
+        return left * right;
+    var mid = Math.trunc((left + right)/2);
+    return productTree(left, mid) * productTree(mid + 1, right);
+}
+
+function factorial(n) {
+    if (n < 0)
+        return 0;
+    if (n === 0)
+        return 1;
+    if (n === 1 || n === 2)
+        return n;
+    return productTree(2,n);
 }
 
 module.exports = factorial;
