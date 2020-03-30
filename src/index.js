@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import NumericInput from 'react-numeric-input';
 import './index.css';
+const factorial = require('./factorial');
 
 class FactorialCalc extends React.Component {
     constructor(props) {
@@ -37,19 +38,6 @@ class FactorialCalc extends React.Component {
 
     
 
-}
-
-function factorial(n) {
-    if (n === 0) {
-        return 1;
-    }
-    else {
-        var result = 1;
-        for (let i=1; i<n+1; i++) {
-            result *= i;
-        }
-        return result;
-    }
 }
 
 ReactDOM.render(
