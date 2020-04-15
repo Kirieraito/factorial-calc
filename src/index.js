@@ -9,7 +9,6 @@ class FactorialCalc extends React.Component {
         super(props)
         this.state = {
             integer: 3,
-            result: 6,
         }
     }
 
@@ -21,10 +20,10 @@ class FactorialCalc extends React.Component {
                     <h1>Calculate the factorial of an integer</h1>
                 </div>
                 <div className="calculator">
-                    <NumericInput min={0} max={40} value={this.state.integer} class='numInput' onChange={this.updateResult} />
+                    <NumericInput value={this.state.integer} class='numInput' onChange={this.updateResult} />
                 </div>
                 <div className="results">
-                    <p className="result">Result: {this.state.result}</p> 
+                    <FactorialResult integer={this.state.integer} />
                 </div>
             </div>
         </div>
@@ -32,25 +31,25 @@ class FactorialCalc extends React.Component {
     }
     
     updateResult = (newInteger) => {
-        var newResult;
-        if (newInteger < 0) {
-            newResult = factorial(0);
-            this.setState({
-                integer: 0,
-                result: newResult,
-            })
-        } else if (newInteger > 40) {
-            newResult = factorial(40);
-            this.setState({
-                integer: 40,
-                result: newResult,
-            })
-        } else {
-            newResult = factorial(newInteger);
-            this.setState({
-                integer: newInteger,
-                result: newResult,
-            })
+        this.setState({
+            integer: newInteger,
+        })
+    }
+}
+
+class FactorialResult extends React.Component {
+    render() {
+        try {
+            if (this.props.integer === undefined) throw new Error("argument wasn't passed");
+            else if (this.props.integer < 0) throw new Error("the argument can't be negative");
+            else if (this.props.integer > 40) throw new Error("the argument is too big");
+            else {
+                var newResult = factorial(this.props.integer);
+                return <p className="result">Result: {newResult}.</p>
+            }
+        }
+        catch (e) {
+            return <p className="result">Error: {e.message}!</p>
         }
     }
 }
