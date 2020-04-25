@@ -24,5 +24,5 @@ Runs ESLint with AirBnB config.
 
 ### `docker-compose up`
 Builds a temporary Node container to build the app, then builds a container from Nginx to host the app.<br />
-Hosts to port 8080 by default.<br />
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+Hosts to port 80 by default.<br />
+Open [http://localhost:80](http://localhost:80) to view it in the browser.
